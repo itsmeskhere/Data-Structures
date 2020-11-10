@@ -3,69 +3,91 @@
 #include<iostream>
 using namespace std;
 
-class Node{
-	public:
-		int data;
-		Node *next;
+struct node {
+	int data;
+	node *next;
 };
 
+class list {
+	private:
+    		node *head; 
+    		//node *tail;
+    	public:
+    		list(){
+      			head = NULL;
+      			//tail = NULL;
+    		}
 
-
-void insert(Node** head, int data, int pos){
-	Node* newNode = new Node();
-	newNode -> data = data;
-	newNode -> next = NULL;
-	
-	if(pos==0){
-		newNode -> next = *head;
-		*head = newNode;
-		cout<<"Success!";
-		return;
-	}
-	else if(pos==-1){
-		Node *last = *head;
-		
-		if(*head == NULL)
-		{
-			*head = newNode;
-			return;
-		}
-		
-		while(last -> next != NULL)
-		{
-			last = last -> next;
-		}
-		last -> next = newNode;
-		cout<<"Success!";
-		return;
-	}
-	else{
-		Node *temp = *head;
-		int len = -1;
-		
-		while(temp -> next != NULL){
-			len++;
-			if(pos == len){
-				newNode -> next = temp -> next;
-				temp -> next = newNode;
-				cout<<"Success!";
-				return;
+			void display(){
+		    	node *temp = new node;
+		    	temp = head;
+		    	cout<<"\nList\n";
+		   		while(temp != NULL){
+		    		cout<<temp->data<<"  ";
+		    		temp = temp->next;
+		    	}
 			}
-			temp = temp -> next;
-		}
-		
-		if(pos == len+1){
-			insert(&head, data, -1);
-			return;
-		}
-		else if(pos > len){
-			cout<<"Invalid position!";
-		}
-	}
-}
 
-int main()
-{
-	
-}
+			void insert(int value, int pos){
+		    	node *temp = new node;
+		    	temp->data = value;
+		    	temp->next = NULL;
+		    	
+		    	if(head == NULL){
+		    		head = temp;
+		       		//tail = temp;
+		       		//temp = NULL;
+		       		cout<<"\nInsert Success!";
+		       		display();
+		    	}
+				else if(pos == 0){
+		    		temp->next = head;
+		    		head = temp;
+		    		cout<<"\nInsert Success!";
+		    		display();
+		    	} 
+		    	else if(pos == -1){
+		    		//tail->next = temp;
+		    		//tail = temp;
+		    		node *last = new node;
+		    		last = head;
+		    		while(last->next != NULL){
+		    			last = last->next;
+		    		}
+		    		last->next = temp;
+		    		cout<<"\nInsert Success!";
+		    		display();
+		    	}
+		    	else {
+		    		node *prev = new node;
+		    		prev = head;
+		    		int len = 0;
+		    		while(prev->next != NULL){
+		    			len++;
+		    			if(pos == len){
+		    				temp->next = prev->next;
+		    				prev->next = temp;
+		    				cout<<"\nInsert Success!";
+		    				display();
+		    			}
+		    			prev = prev->next;
+		    		}
+		    		if(pos == len+1){
+		    			insert(value, -1);
+		    		}
+		    		else if(pos > len){
+		    			cout<<"\nInvalid Position!";
+		    			display();
+		    		}
+		    	}
+			}
+};
 
+int main(){
+	list l;
+	l.insert(0,0);
+	l.insert(1,1);
+	l.insert(-1,-1);
+	l.insert(2,3);
+	return 0;
+}
