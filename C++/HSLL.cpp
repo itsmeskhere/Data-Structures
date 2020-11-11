@@ -22,12 +22,12 @@ struct node {
 };
 
 
-class list {
+class HSLL{
 	private:
     		node *head; 
     		//node *tail;
     	public:
-    		list(){
+    		HSLL(){
       			head = NULL;
       			//tail = NULL;
     		}
@@ -108,7 +108,7 @@ class list {
 };
 
 int main(){
-	list l;
+	HSLL l;
 	l.insert(0,0);
 	l.insert('a',1);
 	l.insert('b',2,2);
