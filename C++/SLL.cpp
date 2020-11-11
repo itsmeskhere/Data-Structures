@@ -35,10 +35,10 @@ class list {
 		    	
 		    	if(head == NULL){
 		    		head = temp;
-		       	//tail = temp;
-		       	//temp = NULL;
-		       	cout<<"\nInsert Success!";
-		       	display();
+				//tail = temp;
+				//temp = NULL;
+				cout<<"\nInsert Success!";
+				display();
 		    	}
 			else if(pos == 0){
 		    		temp->next = head;

@@ -1,4 +1,4 @@
-//Singly Linked List
+//Heterogenous Singly Linked List
 
 #include<iostream>
 using namespace std;
