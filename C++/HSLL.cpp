@@ -9,6 +9,19 @@ struct node {
 	node *next;
 };
 
+struct node {
+    int type_indicator;
+    union {
+        float f;
+        int i;
+        double d;
+        void *p;
+        char c;
+    }
+    node *next;
+};
+
+
 class list {
 	private:
     		node *head; 
@@ -27,13 +40,13 @@ class list {
 		   		if(temp->idata != NULL)
 		    			cout<<temp->idata<<"  ";
 		    		if(temp->cdata != NULL)
-		    			cout<<temp->idata<<"  ";
+		    			cout<<temp->cdata<<"  ";
 		    		cout<<"\n";
 		    		temp = temp->next;
 		    	}
 		}
 
-		void insert(int ivalue, char cvalue, int pos){
+		void insert(char cvalue, int ivalue, int pos){
 		    	node *temp = new node;
 		    	temp->idata = ivalue;
 		    	temp->cdata = cvalue;
@@ -76,13 +89,15 @@ class list {
 		    				cout<<"\nInsert Success!";
 		    				display();
 		    			}
-		    			prev = prev->next;
+		    			if(len < pos){
+		    				prev = prev->next;
+		    			}
 		    		}
 		    		if(pos == len+1){
-		    			insert(value, -1);
+		    			insert(ivalue, cvalue, -1);
 		    		}
 		    		else if(pos < -1){
-		    			insert(value, len+pos+2);
+		    			insert(ivalue, cvalue, len+pos+2);
 		    		}
 		    		else if(pos > len){
 		    			cout<<"\nInvalid Position!";
@@ -95,10 +110,10 @@ class list {
 int main(){
 	list l;
 	l.insert(0,0);
-	l.insert(1,1);
-	l.insert(-1,-1);
-	l.insert(2,3);
-	l.insert(3,4);
-	l.insert(0,-4);
+	l.insert('a',1);
+	l.insert('b',2,2);
+	l.insert(3,-1);
+	l.insert('c',4,-1);
+	l.insert(5,-2);
 	return 0;
 }
