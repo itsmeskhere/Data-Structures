@@ -18,29 +18,29 @@ class list {
       			//tail = NULL;
     		}
 
-			void display(){
+		void display(){
 		    	node *temp = new node;
 		    	temp = head;
 		    	cout<<"\nList\n";
-		   		while(temp != NULL){
+		   	while(temp != NULL){
 		    		cout<<temp->data<<"  ";
 		    		temp = temp->next;
 		    	}
-			}
+		}
 
-			void insert(int value, int pos){
+		void insert(int value, int pos){
 		    	node *temp = new node;
 		    	temp->data = value;
 		    	temp->next = NULL;
 		    	
 		    	if(head == NULL){
 		    		head = temp;
-		       		//tail = temp;
-		       		//temp = NULL;
-		       		cout<<"\nInsert Success!";
-		       		display();
+		       	//tail = temp;
+		       	//temp = NULL;
+		       	cout<<"\nInsert Success!";
+		       	display();
 		    	}
-				else if(pos == 0){
+			else if(pos == 0){
 		    		temp->next = head;
 		    		head = temp;
 		    		cout<<"\nInsert Success!";
@@ -75,12 +75,15 @@ class list {
 		    		if(pos == len+1){
 		    			insert(value, -1);
 		    		}
+		    		else if(pos < -1){
+		    			insert(value, len+pos+2);
+		    		}
 		    		else if(pos > len){
 		    			cout<<"\nInvalid Position!";
 		    			display();
 		    		}
 		    	}
-			}
+		}
 };
 
 int main(){
@@ -89,5 +92,7 @@ int main(){
 	l.insert(1,1);
 	l.insert(-1,-1);
 	l.insert(2,3);
+	l.insert(3,4);
+	l.insert(0,-4);
 	return 0;
 }
