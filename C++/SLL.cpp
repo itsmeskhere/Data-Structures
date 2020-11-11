@@ -99,12 +99,14 @@ class SLL {
 				node *curr = new node;
 				node *prev = new node;
 				curr = head;
-				int len = 0;
+				int len = -1;
+				bool flag = false; 
 				while(curr->next != NULL){
 					if(pos == len){
 						cout<<"\n"<<curr->data<<" Deleted!";
 						prev->next = curr->next;
 						delete curr;
+						flag = true;
 						display();
 						break;
 					}
@@ -112,19 +114,66 @@ class SLL {
 					prev = curr;
 					curr = curr->next;
 				}
-				if(pos == -1){
+				len++;
+				if(!flag){
+					if(pos == len){
+						cout<<"\n"<<curr->data<<" Deleted!";
+						prev->next = curr->next;
+						delete curr;
+						display();
+					}
+					else if(pos == -1){
+						cout<<"\n"<<curr->data<<" Deleted!";
+						prev->next = NULL;
+						delete curr;
+						display();
+					}
+					else if(pos < -1){
+		    				deleteNode(len+pos+1);
+		    			}
+					else if(pos > len){
+		    				cout<<"\nInvalid Position!";
+		    				display();
+					}
+				}
+			}
+		}
+		
+		void deleteNodeValue(int value){
+			node *curr = new node;
+			node *prev = new node;
+			curr = head;
+			int len = 0;
+			bool flag = false;
+			while(curr->next != NULL){
+				if(curr->data == value){
+					cout<<"\nNode "<<len<<" Deleted!";
+					if(len == 0){
+						head = head->next;
+						delete curr;
+						flag = true;
+					}
+					else{
+						prev->next = curr->next;
+						delete curr;
+						flag = true;
+					}
+				}
+				len++;
+				prev = curr;
+				curr = curr->next;
+			}
+			len++;
+			if(!flag){
+				if(curr->data == value){
 					cout<<"\n"<<curr->data<<" Deleted!";
-					prev->next = NULL;
+					prev->next = curr->next;
 					delete curr;
-					display();
 				}
-				else if(pos < -1){
-		    			deleteNode(len+pos+1);
-		    		}
-				else if(pos > len){
-		    			cout<<"\nInvalid Position!";
-		    			display();
+				else{
+					cout<<"\n"<<value<<" not Found!";
 				}
+				display();
 			}
 		}
 };
@@ -137,9 +186,11 @@ int main(){
 	l.insertNode(3,3);
 	l.insertNode(4,4);
 	l.insertNode(5,5);
-	l.deleteNode(0);
-	l.deleteNode(1);
-	l.deleteNode(-1);
-	l.deleteNode(-2);
+	//l.deleteNode(5);
+	//l.deleteNode(4);
+	l.deleteNodeValue(0);
+	l.deleteNodeValue(3);
+	l.deleteNodeValue(6);
+	l.deleteNodeValue(5);
 	return 0;
 }
