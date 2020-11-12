@@ -195,19 +195,19 @@ class SLL {
 			}
 			len++;
 			if(len > 1){
-				node *cur = new node;
-				node *nex = new node;
+				node *curr = new node;
+				node *next = new node;
 				for(int i = 0; i < len; i++){
-					cur = head;
-					nex = head->next;
+					curr = head;
+					next = head->next;
 					bool flag = false;
-					while(cur->next != NULL){
-						if((order == 1 && cur->data > nex->data) || (order == -1 && cur->data < nex->data)){
-							swapNode(cur, nex);
+					while(curr->next != NULL){
+						if((order == 1 && curr->data > next->data) || (order == -1 && curr->data < next->data)){
+							swapNode(curr, next);
 							flag = true;
 						}
-						cur = nex;
-						nex = nex->next;
+						curr = next;
+						next = next->next;
 					}
 					if(!flag){
 						break;
@@ -217,6 +217,20 @@ class SLL {
 				display();	
 			}
 		}
+		
+		void reverseList(){
+			node *curr = head;
+			node *prev = NULL;
+			node *next = NULL;
+			while(curr != NULL){
+				next = curr->next;
+				curr->next = prev;
+				prev = curr;
+				curr = next;
+			}
+			head = prev;
+			display();
+		}
 };
 
 int main(){
@@ -224,16 +238,18 @@ int main(){
 	l.insertNode(5,0);
 	l.insertNode(4,1);
 	l.insertNode(3,2);
-	l.insertNode(2,3);
+	l.insertNode(0,3);
 	l.insertNode(1,4);
-	l.insertNode(0,5);
+	l.insertNode(2,5);
 	//l.deleteNode(5);
 	//l.deleteNode(4);
 	//l.deleteNodeValue(0);
 	//l.deleteNodeValue(3);
 	//l.deleteNodeValue(6);
 	//l.deleteNodeValue(5);
-	l.sortList(1);
-	l.sortList(-1);
+	//l.sortList(1);
+	//l.sortList(-1);
+	l.reverseList();
+	l.reverseList();
 	return 0;
 }
