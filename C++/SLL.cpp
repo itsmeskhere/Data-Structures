@@ -176,21 +176,63 @@ class SLL {
 				display();
 			}
 		}
+		
+		void swapNode(node *A, node *B){
+			int temp;
+			temp = A->data;
+			A->data = B->data;
+			B->data = temp;
+		}
+		
+		void sortList(int order){
+			node *temp = new node;
+			temp = head;
+			int len = 0;
+			while(temp->next != NULL){
+				len++;
+				temp = temp->next;
+			}
+			len++;
+			if(len > 1){
+				node *cur = new node;
+				node *nex = new node;
+				for(int i = 0; i < len; i++){
+					cur = head;
+					nex = head->next;
+					bool flag = false;
+					while(cur->next != NULL){
+						if((order == 1 && cur->data > nex->data) || (order == -1 && cur->data < nex->data)){
+							swapNode(cur, nex);
+							flag = true;
+						}
+						cur = nex;
+						nex = nex->next;
+					}
+					if(!flag){
+						break;
+					}
+				}
+				cout<<"\nList Sorted!";
+				display();	
+			}
+		}
 };
 
 int main(){
 	SLL l;
-	l.insertNode(0,0);
-	l.insertNode(1,1);
-	l.insertNode(2,2);
-	l.insertNode(3,3);
-	l.insertNode(4,4);
-	l.insertNode(5,5);
+	l.insertNode(5,0);
+	l.insertNode(4,1);
+	l.insertNode(3,2);
+	l.insertNode(2,3);
+	l.insertNode(1,4);
+	l.insertNode(0,5);
 	//l.deleteNode(5);
 	//l.deleteNode(4);
-	l.deleteNodeValue(0);
-	l.deleteNodeValue(3);
-	l.deleteNodeValue(6);
-	l.deleteNodeValue(5);
+	//l.deleteNodeValue(0);
+	//l.deleteNodeValue(3);
+	//l.deleteNodeValue(6);
+	//l.deleteNodeValue(5);
+	l.sortList(1);
+	l.sortList(-1);
 	return 0;
 }
