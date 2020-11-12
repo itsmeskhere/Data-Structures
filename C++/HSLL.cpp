@@ -11,11 +11,9 @@ struct node {
 class SLL {
 	private:
     		node *head; 
-    		//node *tail;
     	public:
     		SLL(){
       			head = NULL;
-      			//tail = NULL;
     		}
 
 		void display(){
@@ -35,8 +33,6 @@ class SLL {
 		    	
 		    	if(head == NULL){
 		    		head = temp;
-				//tail = temp;
-				//temp = NULL;
 				cout<<"\nInsert Success!";
 				display();
 		    	}
@@ -47,8 +43,6 @@ class SLL {
 		    		display();
 		    	} 
 		    	else if(pos == -1){
-		    		//tail->next = temp;
-		    		//tail = temp;
 		    		node *last = new node;
 		    		last = head;
 		    		while(last->next != NULL){
@@ -241,14 +235,6 @@ int main(){
 	l.insertNode(0,3);
 	l.insertNode(1,4);
 	l.insertNode(2,5);
-	//l.deleteNode(5);
-	//l.deleteNode(4);
-	//l.deleteNodeValue(0);
-	//l.deleteNodeValue(3);
-	//l.deleteNodeValue(6);
-	//l.deleteNodeValue(5);
-	//l.sortList(1);
-	//l.sortList(-1);
 	l.reverseList();
 	l.reverseList();
 	return 0;
