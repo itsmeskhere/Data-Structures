@@ -73,11 +73,12 @@ class SLL {
 		    			}
 		    			prev = prev->next;
 		    		}
-		    		if(pos == len+1){
+		    		len++;
+		    		if(pos == len){
 		    			insertNode(value, -1);
 		    		}
 		    		else if(pos < -1){
-		    			insertNode(value, len+pos+2);
+		    			insertNode(value, len+pos);
 		    		}
 		    		else if(pos > len){
 		    			cout<<"\nInvalid Position!";
