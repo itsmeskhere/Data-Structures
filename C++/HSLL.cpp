@@ -51,7 +51,7 @@ class SLL {
 		    		//tail = temp;
 		    		node *last = new node;
 		    		last = head;
-		    		while(last != NULL){
+		    		while(last->next != NULL){
 		    			last = last->next;
 		    		}
 		    		last->next = temp;
@@ -62,7 +62,7 @@ class SLL {
 		    		node *prev = new node;
 		    		prev = head;
 		    		int len = 0;
-		    		while(prev != NULL){
+		    		while(prev->next != NULL){
 		    			len++;
 		    			if(pos == len){
 		    				temp->next = prev->next;
@@ -73,8 +73,12 @@ class SLL {
 		    			}
 		    			prev = prev->next;
 		    		}
-		    		if(pos < -1){
-		    			insertNode(value, len+pos+2);
+		    		len++;
+		    		if(pos == len){
+		    			insertNode(value, -1);
+		    		}
+		    		else if(pos < -1){
+		    			insertNode(value, len+pos);
 		    		}
 		    		else if(pos > len){
 		    			cout<<"\nInvalid Position!";
@@ -98,7 +102,7 @@ class SLL {
 				curr = head;
 				int len = -1;
 				bool flag = false; 
-				while(curr != NULL){
+				while(curr->next != NULL){
 					if(pos == len){
 						cout<<"\n"<<curr->data<<" Deleted!";
 						prev->next = curr->next;
@@ -111,6 +115,7 @@ class SLL {
 					prev = curr;
 					curr = curr->next;
 				}
+				len++;
 				if(!flag){
 					if(pos == len){
 						cout<<"\n"<<curr->data<<" Deleted!";
@@ -141,7 +146,7 @@ class SLL {
 			curr = head;
 			int len = 0;
 			bool flag = false;
-			while(curr != NULL){
+			while(curr->next != NULL){
 				if(curr->data == value){
 					cout<<"\nNode "<<len<<" Deleted!";
 					if(len == 0){
@@ -159,6 +164,7 @@ class SLL {
 				prev = curr;
 				curr = curr->next;
 			}
+			len++;
 			if(!flag){
 				if(curr->data == value){
 					cout<<"\n"<<curr->data<<" Deleted!";
@@ -183,10 +189,11 @@ class SLL {
 			node *temp = new node;
 			temp = head;
 			int len = 0;
-			while(temp != NULL){
+			while(temp->next != NULL){
 				len++;
 				temp = temp->next;
 			}
+			len++;
 			if(len > 1){
 				node *cur = new node;
 				node *nex = new node;
