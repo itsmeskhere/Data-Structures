@@ -61,7 +61,6 @@ class SLL {
 		    		prev = head;
 		    		int len = 0;
 		    		while(prev->next != NULL){
-		    			len++;
 		    			if(pos == len){
 		    				temp->next = prev->next;
 		    				prev->next = temp;
@@ -69,13 +68,15 @@ class SLL {
 		    				display();
 		    				break;
 		    			}
+		    			len++;
 		    			prev = prev->next;
 		    		}
-		    		if(pos == len+1){
+		    		len++;
+		    		if(pos == len){
 		    			insertNode(value, -1);
 		    		}
 		    		else if(pos < -1){
-		    			insertNode(value, len+pos+2);
+		    			insertNode(value, len+pos);
 		    		}
 		    		else if(pos > len){
 		    			cout<<"\nInvalid Position!";
@@ -86,13 +87,11 @@ class SLL {
 };
 
 int main(){
-	SLL l[10];
-	l[0].insertNode(5,0);
-	l[0].insertNode(4,1);
-	l[0].insertNode(3,2);
-	l[1].insertNode(2,0);
-	l[1].insertNode(1,-1);
-	l[1].insertNode(0,-1);
-	l[0].display();
-	l[1].display();
+	SLL l;
+	l.insertNode(0,0);
+	l.insertNode(1,1);
+	l.insertNode(2,2);
+	l.insertNode(4,-1);
+	l.insertNode(3,-2);
+	l.display();
 }
