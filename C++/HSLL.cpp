@@ -234,15 +234,20 @@ class SLL {
 		
 		void nthNode(int n){
 			int i = 0;
+			bool flag = false;
 			node *temp = new node();
 			temp = head;
 			while(temp != NULL){
 				i++;
 				if(i == n){
 					cout<<"\nNode "<<n<<": "<<temp->data;
+					flag = true;
 					break;
 				}
 				temp = temp->next;
+			}
+			if(!flag){
+				cout<<"\nOut of Range of List";
 			}
 		}
 };
