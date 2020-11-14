@@ -270,5 +270,10 @@ int main(){
 	//l.sortList(-1);
 	l.reverseList();
 	l.reverseList();
+	l.nthNode(0);
+	l.nthNode(3);
+	l.nthNode(6);
+	l.nthNode(7);
+	l.nthNode(10);
 	return 0;
 }
