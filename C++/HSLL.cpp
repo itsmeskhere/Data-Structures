@@ -233,7 +233,17 @@ class SLL {
 		}
 		
 		void nthNode(int n){
-			
+			int i = 0;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				i++;
+				if(i == n){
+					cout<<"\nNode "<<n<<": "<<temp->data;
+					break;
+				}
+				temp = temp->next;
+			}
 		}
 };
 
