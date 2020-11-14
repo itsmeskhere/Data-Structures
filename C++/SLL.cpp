@@ -231,6 +231,10 @@ class SLL {
 			head = prev;
 			display();
 		}
+		
+		void nthNode(int n){
+			
+		}
 };
 
 int main(){
