@@ -252,7 +252,22 @@ class SLL {
 		}
 		
 		void searchNode(int n){
-			
+			int i = 0;
+			bool flag = false;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				i++;
+				if(temp->data == n){
+					cout<<"\nNode "<<i;
+					flag = true;
+					break;
+				}
+				temp = temp->next;
+			}
+			if(!flag){
+				cout<<"\n"<<n<<" is not in List";
+			}
 		}
 };
 
