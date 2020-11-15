@@ -285,14 +285,19 @@ int main(){
 	//l.deleteNodeValue(3);
 	//l.deleteNodeValue(6);
 	//l.deleteNodeValue(5);
-	//l.sortList(1);
+	l.sortList(1);
 	//l.sortList(-1);
-	l.reverseList();
-	l.reverseList();
-	l.nthNode(0);
-	l.nthNode(3);
-	l.nthNode(6);
-	l.nthNode(7);
-	l.nthNode(10);
+	//l.reverseList();
+	//l.reverseList();
+	//l.nthNode(0);
+	//l.nthNode(3);
+	//l.nthNode(6);
+	//l.nthNode(7);
+	//l.nthNode(10);
+	l.searchNode(0);
+	l.searchNode(1);
+	l.searchNode(4);
+	l.searchNode(5);
+	l.searchNode(10);
 	return 0;
 }
