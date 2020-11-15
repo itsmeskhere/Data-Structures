@@ -250,6 +250,10 @@ class SLL {
 				cout<<"\nOut of Range of List";
 			}
 		}
+		
+		void searchNode(int n){
+			
+		}
 };
 
 int main(){
