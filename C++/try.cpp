@@ -99,15 +99,31 @@ class SLL {
 				cout<<"\nMax Node: "<<max;
 			}
 		}
+		
+		void minNode(){
+			int min = 999999999;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				if(min > temp->data){
+					min = temp->data;
+				}
+				temp = temp->next;
+			}
+			if(temp == NULL){
+				cout<<"\nMin Node: "<<min;
+			}
+		}
 };
 
 int main(){
 	SLL l;
-	l.insertNode(0,0);
-	l.insertNode(1,1);
+	l.insertNode(1,0);
+	l.insertNode(0,1);
 	l.insertNode(2,2);
 	l.insertNode(3,-1);
 	l.insertNode(4,-2);
 	l.display();
 	l.maxNode();
+	l.minNode();
 }
