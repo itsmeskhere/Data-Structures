@@ -284,6 +284,21 @@ class SLL {
 				cout<<"\nMax Node: "<<max;
 			}
 		}
+		
+		void minNode(){
+			int min = 999999999;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				if(min > temp->data){
+					min = temp->data;
+				}
+				temp = temp->next;
+			}
+			if(temp == NULL){
+				cout<<"\nMin Node: "<<min;
+			}	
+		}
 };
 
 int main(){
