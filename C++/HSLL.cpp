@@ -299,6 +299,57 @@ class SLL {
 				cout<<"\nMin Node: "<<min;
 			}	
 		}
+		
+		void frequencyList(){
+			cout<<"\nFrequency Table";
+			int max = -999999999;
+			int min = 999999999;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				if(min > temp->data){
+					min = temp->data;
+				}
+				if(max < temp->data){
+					max = temp->data;
+				}
+				temp = temp->next;
+			}
+			
+			min*=-1;
+			int pos[max+1] = {0};
+			int neg[min+1] = {0};
+			if(max == -999999999){
+				max = 0;
+			}
+			if(min == -999999999){
+				min = 0;
+			}
+			
+			temp = head;
+			while(temp != NULL){
+				if(temp->data >= 0){
+					pos[temp->data]++;
+				}
+				else if(temp->data < 0){
+					int x;
+					x = temp->data;
+					x*=-1;
+					neg[x]++;
+				}
+				temp = temp->next;
+			}
+			for(int i = min; i > 0; i--){
+				if(neg[i] != 0){
+					cout<<"\n-"<<i<<"==>"<<neg[i];
+				}
+			}
+			for(int i = 0; i < max+1; i++){
+				if(pos[i] != 0){
+					cout<<"\n"<<i<<"==>"<<pos[i];
+				}
+			}
+		}
 };
 
 int main(){
