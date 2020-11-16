@@ -380,5 +380,9 @@ int main(){
 	l.searchNode(4);
 	l.searchNode(5);
 	l.searchNode(10);
+	l.maxNode();
+	l.minNode();
+	l.frequencyList();
+	l.display();
 	return 0;
 }
