@@ -84,6 +84,21 @@ class SLL {
 		    		}
 		    	}
 		}
+		
+		void maxNode(){
+			int max = -999999999;
+			node *temp = new node();
+			temp = head;
+			while(temp != NULL){
+				if(max < temp->data){
+					max = temp->data;
+				}
+				temp = temp->next;
+			}
+			if(temp == NULL){
+				cout<<"\nMax Node: "<<max;
+			}
+		}
 };
 
 int main(){
@@ -91,7 +106,8 @@ int main(){
 	l.insertNode(0,0);
 	l.insertNode(1,1);
 	l.insertNode(2,2);
-	l.insertNode(4,-1);
-	l.insertNode(3,-2);
+	l.insertNode(3,-1);
+	l.insertNode(4,-2);
 	l.display();
+	l.maxNode();
 }
