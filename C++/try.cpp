@@ -15,7 +15,11 @@ class SLL {
       			head = NULL;
       			//tail = NULL;
     		}
-
+    		
+		node* getHead(){
+			return head;
+		}
+		
 		void display(){
 		    	node *temp = new node;
 		    	temp = head;
@@ -165,21 +169,44 @@ class SLL {
 				}
 			}
 		}
+		
+		void mergeList(node* a, node* b){
+			while(a != NULL || b != NULL){
+				if(a != NULL){
+					insertNode(a->data, -1);
+					a = a->next;
+				}
+				if(b != NULL){
+					insertNode(b->data, -1);
+					b = b->next;
+				}
+			}
+			cout<<"\nMerged List";
+			display();
+		}
 };
 
 int main(){
-	SLL l;
-	l.insertNode(-1,0);
-	l.insertNode(-10,1);
-	l.insertNode(0,2);
-	l.insertNode(-1,3);
-	l.insertNode(1,4);
-	l.insertNode(1,5);
-	l.insertNode(0,6);
-	l.insertNode(2,7);
-	l.display();
-	l.maxNode();
-	l.minNode();
-	l.frequencyList();
-	l.display();
+	SLL l, a, b, c;
+//	l.insertNode(-1,0);
+//	l.insertNode(-10,1);
+//	l.insertNode(0,2);
+//	l.insertNode(-1,3);
+//	l.insertNode(1,4);
+//	l.insertNode(1,5);
+//	l.insertNode(0,6);
+//	l.insertNode(2,7);
+//	l.display();
+//	l.maxNode();
+//	l.minNode();
+//	l.frequencyList();
+//	l.display();
+	a.insertNode(-1,-1);
+	a.insertNode(-2,-1);
+	a.insertNode(-3,-1);
+	b.insertNode(1,-1);
+	b.insertNode(2,-1);
+	b.insertNode(3,-1);
+	//c.mergeList(a.head, b.head);
+	c.mergeList(a.getHead(), b.getHead());
 }
