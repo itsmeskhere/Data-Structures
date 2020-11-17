@@ -374,13 +374,13 @@ class SLL {
 
 
 int main(){
-	SLL l;
-	l.insertNode(5,0);
-	l.insertNode(4,1);
-	l.insertNode(3,2);
-	l.insertNode(0,3);
-	l.insertNode(1,4);
-	l.insertNode(2,5);
+	SLL l, a, b, c;
+	//l.insertNode(5,0);
+	//l.insertNode(4,1);
+	//l.insertNode(3,2);
+	//l.insertNode(0,3);
+	//l.insertNode(1,4);
+	//l.insertNode(2,5);
 	//l.deleteNode(5);
 	//l.deleteNode(4);
 	//l.deleteNodeValue(0);
@@ -396,14 +396,22 @@ int main(){
 	//l.nthNode(6);
 	//l.nthNode(7);
 	//l.nthNode(10);
-	l.searchNode(0);
-	l.searchNode(1);
-	l.searchNode(4);
-	l.searchNode(5);
-	l.searchNode(10);
-	l.maxNode();
-	l.minNode();
-	l.frequencyList();
-	l.display();
+	//l.searchNode(0);
+	//l.searchNode(1);
+	//l.searchNode(4);
+	//l.searchNode(5);
+	//l.searchNode(10);
+	//l.maxNode();
+	//l.minNode();
+	//l.frequencyList();
+	//l.display();
+	a.insertNode(-1,-1);
+	a.insertNode(-2,-1);
+	a.insertNode(-3,-1);
+	b.insertNode(1,-1);
+	b.insertNode(2,-1);
+	b.insertNode(3,-1);
+	//c.mergeList(a.head, b.head);
+	c.mergeList(a.getHead(), b.getHead());
 	return 0;
 }
