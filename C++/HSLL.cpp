@@ -17,6 +17,10 @@ class SLL {
       			head = NULL;
       			//tail = NULL;
     		}
+    		
+    		node* getHead(){
+			return head;
+		}
 
 		void display(){
 		    	node *temp = new node;
