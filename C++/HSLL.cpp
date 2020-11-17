@@ -350,7 +350,24 @@ class SLL {
 				}
 			}
 		}
+		
+		void mergeList(node* a, node* b){
+			while(a != NULL || b != NULL){
+				if(a != NULL){
+					insertNode(a->data, -1);
+					a = a->next;
+				}
+				if(b != NULL){
+					insertNode(b->data, -1);
+					b = b->next;
+				}
+			}
+			cout<<"\nMerged List";
+			display();
+		}
 };
+
+
 
 int main(){
 	SLL l;
@@ -366,7 +383,7 @@ int main(){
 	//l.deleteNodeValue(3);
 	//l.deleteNodeValue(6);
 	//l.deleteNodeValue(5);
-	l.sortList(1);
+	//l.sortList(1);
 	//l.sortList(-1);
 	//l.reverseList();
 	//l.reverseList();
