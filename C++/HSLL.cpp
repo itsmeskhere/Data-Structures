@@ -369,6 +369,30 @@ class SLL {
 			cout<<"\nMerged List";
 			display();
 		}
+
+		void mergeOrderedList(node* a, node* b){
+			bool flagA = false, flagB = false;
+			while(a != NULL && b != NULL){
+				if(a->data <= b->data){
+					insertNode(a->data, -1);
+					a = a->next;
+				}
+				else if(b->data <= a->data){
+					insertNode(b->data, -1);
+					b = b->next;
+				}
+			}
+			while(a != NULL){
+				insertNode(a->data, -1);
+				a = a->next;
+			}
+			while(b != NULL){
+				insertNode(b->data, -1);
+				b = b->next;
+			}
+			cout<<"\nOrdered Merged List";
+			display();
+		}
 };
 
 
@@ -405,13 +429,16 @@ int main(){
 	//l.minNode();
 	//l.frequencyList();
 	//l.display();
-	a.insertNode(-1,-1);
-	a.insertNode(-2,-1);
-	a.insertNode(-3,-1);
-	b.insertNode(1,-1);
+	a.insertNode(1,-1);
+	a.insertNode(3,-1);
+	a.insertNode(5,-1);
+	a.insertNode(7,-1);
 	b.insertNode(2,-1);
-	b.insertNode(3,-1);
+	b.insertNode(4,-1);
+	b.insertNode(6,-1);
+	b.insertNode(8,-1);
 	//c.mergeList(a.head, b.head);
-	c.mergeList(a.getHead(), b.getHead());
+	//c.mergeList(a.getHead(), b.getHead());
+	c.mergeOrderedList(a.getHead(), b.getHead());
 	return 0;
 }
